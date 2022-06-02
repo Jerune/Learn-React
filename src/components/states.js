@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Cart({ cart, updateCart}) {
     const monsteraPrice = 8
     const [isOpen, setIsOpen] = useState(false)
+    let total = monsteraPrice * cart
+    useEffect(() => {
+        document.title = `JH: ${total}€ Purchases`
+    }, [total])
 
     return isOpen ? (
         <div className="jhjh">
@@ -14,7 +18,7 @@ function Cart({ cart, updateCart}) {
                     Add
                 </button>
                 </div>
-                <h3>Total: {monsteraPrice * cart}€</h3>
+                <h3>Total: {total}€</h3>
             </div>
 ) : (
         <button onClick={() => setIsOpen(true)}>Open Cart</button>
