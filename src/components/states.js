@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-function Cart() {
+function Cart({ cart, updateCart}) {
     const monsteraPrice = 8
-    const [cart, updateCart] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
 
     return isOpen ? (
